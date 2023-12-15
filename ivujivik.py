@@ -9,9 +9,7 @@ with open('/home/admin/table_tableau11.csv', 'r') as file:
     csv.next(reader)
     for row in reader:
         district_name, population, rejected_ballots = row[1], int(row[3]), int(row[8])
-        print(f"{district_name} | {population} | {rejected_ballots}")
         if population >= 100000:
-            print(f"Skipping {district_name} because the population is {population}")
             continue
         if rejected_ballots > max_rejected_ballots:
             max_rejected_ballots = rejected_ballots
